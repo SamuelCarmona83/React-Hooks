@@ -1,24 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
 
 //create your first component
 const Home = () => {
+	//parte logica
+	const [contador, setContador] = useState(0)
+
+	//parte template - visual
 	return (
 		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
+			<h1 className="text-center mt-5">Simple Counter!</h1>
+			<button onClick={(evento) => setContador(contador - 1)} className="btn btn-danger">reducir</button>
+			<p  className="text-center fs-1">
+				{ contador }
 			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+			<button onClick={(evento) => setContador(contador + 1)} className="btn btn-success">incrementar</button>
 		</div>
 	);
 };
